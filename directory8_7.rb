@@ -37,7 +37,7 @@ def input_statements
       end
     end
     # add the student hash to the array
-    students << {name: name.capitalize!, cohort: cohort.capitalize!}
+    students << {name: name.split(" ").map {|x| x.capitalize}.join(" "), cohort: cohort.capitalize!}
     puts "Now we have #{students.count} students"
     # get another name from the user
     puts "Please enter the name of another student"
