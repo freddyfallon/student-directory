@@ -20,7 +20,7 @@ def input_statements
   puts "To finish, just hit return twice"
   # create an empty array
   students = []
-  cohorts = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  cohorts = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
   # get the first name
   puts "Please enter the name of the first student"
   name = $stdin.gets.chomp
@@ -30,14 +30,14 @@ def input_statements
     cohort = $stdin.gets.chomp
     if cohort.empty?
       cohort = "November"
-    elsif !cohorts.include? cohort
-      until cohorts.include? cohort
+    elsif !cohorts.include? cohort.downcase
+      until cohorts.include? cohort.downcase
       puts "Try again..."
       cohort = $stdin.gets.chomp
       end
     end
     # add the student hash to the array
-    students << {name: name, cohort: cohort}
+    students << {name: name.capitalize!, cohort: cohort.capitalize!}
     puts "Now we have #{students.count} students"
     # get another name from the user
     puts "Please enter the name of another student"
