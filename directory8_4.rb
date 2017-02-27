@@ -8,10 +8,18 @@ end
 def print(students)
   i = 0
   while i < students.count
-    puts "#{i}. #{students[i][:name]} #{students[i][:cohort]} cohort"
+    puts "#{i}. #{students[i][:name]} (#{students[i][:cohort]} cohort)"
     i += 1
   end
 end
+
+#def print(students)
+#  i = 0
+#  until i == students.count
+#    puts "#{i}. #{students[i][:name]} #{students[i][:cohort]} cohort"
+#    i += 1
+#  end
+#end
 
 def footer(students)
   puts "Overall, we have #{students.count} great students"

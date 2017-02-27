@@ -6,10 +6,8 @@ def print_header
 end
 
 def print(students)
-  students.each_with_index() do |student, index|
-    if student[:name].downcase.start_with? 'h' #checks for H at start
-      puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
-    end
+  students.each do |student|
+    puts "#{student[:name]} (#{student[:cohort]} cohort)"
   end
 end
 
@@ -18,18 +16,31 @@ def footer(students)
 end
 
 def input_statements
-  puts "Please enter the names of the students"
+  puts "Please enter the names of the student"
   puts "To finish, just hit return twice"
   # create an empty array
   students = []
+  cohorts = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   # get the first name
+  puts "Please enter the name of the first student"
   name = $stdin.gets.chomp
   # while the name is not empty, repeat this code
   while !name.empty? do
+    puts "Please enter their cohort"
+    cohort = $stdin.gets.chomp
+    if cohort.empty?
+      cohort = "November"
+    elsif !cohorts.include? cohort
+      until cohorts.include? cohort
+      puts "Try again..."
+      cohort = $stdin.gets.chomp
+      end
+    end
     # add the student hash to the array
-    students << {name: name, cohort: :november}
+    students << {name: name, cohort: cohort}
     puts "Now we have #{students.count} students"
     # get another name from the user
+    puts "Please enter the name of another student"
     name = $stdin.gets.chomp
   end
   # returns the array of students
@@ -37,6 +48,7 @@ def input_statements
 end
 
 students = input_statements
+
 print_header
 print(students)
 footer(students)
