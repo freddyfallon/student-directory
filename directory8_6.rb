@@ -1,18 +1,18 @@
 # let's put all the students into an array
 
 def print_header
-  puts "The students of Villains Academy"
-  puts "-------------"
+  puts "The students of Villains Academy".center(100)
+  puts "-------------".center(100)
 end
 
 def print(students)
   students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} cohort). Hobbies: #{student[:hobbies]}. Born: #{student[:country_of_birth]}."
+    puts "#{student[:name]} (#{student[:cohort]} cohort). Hobbies: #{student[:hobbies]}. Born: #{student[:country_of_birth]}.".center(100)
   end
 end
 
 def footer(students)
-  puts "Overall, we have #{students.count} great students"
+  puts "Overall, we have #{students.count} great students".center(100)
 end
 
 def input_statements
@@ -21,7 +21,7 @@ def input_statements
   students = []
   # while the name is not empty, repeat this code
   # get the first name
-  puts "Please enter the name of another student"
+  puts "Please enter the name of a student"
   name = $stdin.gets.chomp
   while !name.empty? do
     # get hobbies
@@ -34,7 +34,7 @@ def input_statements
     students << {name: name, cohort: :november, hobbies: hobbies, country_of_birth: country_of_birth}
     puts "Now we have #{students.count} students"
     # get another name from the user
-    puts "Please enter the name of a student"
+    puts "Please enter the name of another student"
     name = $stdin.gets.chomp
   end
   # returns the array of students
