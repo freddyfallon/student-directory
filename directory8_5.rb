@@ -34,7 +34,7 @@ def input_statements
     students << {name: name, cohort: :november, hobbies: hobbies, country_of_birth: country_of_birth}
     puts "Now we have #{students.count} students"
     # get another name from the user
-    puts "Please enter the name of a student"
+    puts "Please enter the name of a student (or press enter twice to finish)"
     name = $stdin.gets.chomp
   end
   # returns the array of students

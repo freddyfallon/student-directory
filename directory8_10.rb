@@ -27,25 +27,25 @@ def input_statements
   cohorts = [:january, :february, :march, :april, :may, :june, :july, :august, :september, :october, :november, :december]
   # get the first name
   puts "Please enter the name of the first student"
-  name = $stdin.gets.chomp
+  name = $stdin.gets.insert(-1, "\n")
   # while the name is not empty, repeat this code
   while !name.empty? do
     puts "Please enter their cohort"
-    cohort = $stdin.gets.chomp
+    cohort = $stdin.gets.delete("\n")
     if cohort.empty?
       cohort = "November"
     elsif !cohorts.include? cohort.downcase.to_sym
       until cohorts.include? cohort.downcase.to_sym
       puts "Try again..."
-      cohort = $stdin.gets.chomp
+      cohort = $stdin.gets.delete("\n")
       end
     end
     # add the student hash to the array
     students << {name: name.split(" ").map {|x| x.capitalize}.join(" "), cohort: cohort.downcase.capitalize!}
     puts "Now we have #{students.count} students"
     # get another name from the user
-    puts "Please enter the name of another student (or press enter twice to finish)"
-    name = $stdin.gets.chomp
+    puts "Please enter the name of another student (or press enter to finish)"
+    name = $stdin.gets.delete("\n")
   end
   # returns the array of students
   students
