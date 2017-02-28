@@ -10,14 +10,11 @@ end
 #      end
 #end
 
+# This is a little bit hairy - I'm sure it could be refactored even more
 def print(students)
   @cohort_list.uniq.each do |cohort|
     puts "#{cohort} cohort:"
-      students.each do |student|
-        if student[:cohort] == cohort
-          puts student[:name]
-        end
-      end
+      students.each {|student| puts student[:name] if student[:cohort] == cohort }
     end
 end
 
