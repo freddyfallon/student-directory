@@ -11,16 +11,14 @@ end
 #end
 
 def print(students)
-  @cohort_list.uniq.each do |x|
-    puts "#{x} cohort:"
+  @cohort_list.uniq.each do |cohort|
+    puts "#{cohort} cohort:"
       students.each do |student|
-        if student[:cohort] == x
+        if student[:cohort] == cohort
           puts student[:name]
         end
       end
     end
-end
-
 end
 
 def footer(students)
