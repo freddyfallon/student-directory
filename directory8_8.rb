@@ -1,14 +1,26 @@
 # let's put all the students into an array
-
 def print_header
   puts "The students of Villains Academy"
   puts "-------------"
 end
 
+#def print(students)
+#  students.sort_by {|x| x[:cohort]}.each do |x|
+#        puts "Name: #{x[:name]} Cohort:#{x[:cohort]}"
+#      end
+#end
+
 def print(students)
-  students.sort_by {|x| x[:cohort]}.each do |x|
-        puts "Name: #{x[:name]} Cohort:#{x[:cohort]}"
+  @cohort_list.uniq.each do |x|
+    puts "#{x} cohort:"
+      students.each do |student|
+        if student[:cohort] == x
+          puts student[:name]
+        end
       end
+    end
+end
+
 end
 
 def footer(students)
@@ -48,6 +60,7 @@ def input_statements
 end
 
 students = input_statements
+@cohort_list = students.map {|student| student[:cohort] }.uniq!
 
 print_header
 print(students)
