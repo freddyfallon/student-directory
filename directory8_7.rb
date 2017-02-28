@@ -40,7 +40,7 @@ def input_statements
     students << {name: name.split(" ").map {|x| x.capitalize}.join(" "), cohort: cohort.downcase.capitalize!}
     puts "Now we have #{students.count} students"
     # get another name from the user
-    puts "Please enter the name of another student (or press enter twice to finish)"
+    puts "Please enter the name of another student (or press enter to finish)"
     name = $stdin.gets.chomp
   end
   # returns the array of students
