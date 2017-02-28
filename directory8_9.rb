@@ -12,7 +12,11 @@ def print(students)
 end
 
 def footer(students)
+  if students.count == 1
+    puts "Overall, we have #{students.count} great student"
+    else
     puts "Overall, we have #{students.count} great students"
+  end
 end
 
 def input_statements
