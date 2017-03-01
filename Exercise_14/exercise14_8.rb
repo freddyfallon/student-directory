@@ -1,3 +1,1 @@
-File.open(__FILE__, "r") do |f|
-  puts f.read
-end
+File.open(__FILE__, "r")  {|f| puts f.read }
