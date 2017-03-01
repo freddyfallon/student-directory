@@ -18,6 +18,12 @@ end
 def input_statements
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
+  get_input
+  # returns the array of students
+  @students
+end
+
+def get_input
   # get the first name
   @name = $stdin.gets.chomp
   # while the name is not empty, repeat this code
@@ -28,8 +34,6 @@ def input_statements
     # get another name from the user
     @name = $stdin.gets.chomp
   end
-  # returns the array of students
-  @students
 end
 
 def interactive_menu
