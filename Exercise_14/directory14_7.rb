@@ -82,12 +82,12 @@ def save_students
       filename = $stdin.gets.chomp
     end
   end
-  CSV.open(filename, "w")
+  CSV.open(filename, "w") do |csv|
   # iterate over the array of students
-  @students.each do |student|
-    student_data = [student[:name], student[:cohort]]
-    csv_line = student_data.join(",")
-    CSV.puts csv_line
+    @students.each do |student|
+      student_data = [student[:name], student[:cohort]]
+      csv << student_data
+    end
   end
   puts "Saving students...done!"
 end
