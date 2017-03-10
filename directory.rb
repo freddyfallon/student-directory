@@ -56,7 +56,7 @@ end
 def process(selection)
   case selection
   when "1"
-    students = input_statements
+    @students = input_statements
   when "2"
     show_students
   when "3"
